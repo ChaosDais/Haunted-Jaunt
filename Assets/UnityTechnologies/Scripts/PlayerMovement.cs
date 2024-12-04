@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveSpeed;
     public float walkSpeed = 1.0f;
-    public float runSpeed = 1.75f;
+    public float runSpeed = 1.5f;
 
     void Start()
     {

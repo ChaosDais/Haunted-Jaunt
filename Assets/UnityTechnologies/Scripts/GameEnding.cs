@@ -15,6 +15,7 @@ public class GameEnding : MonoBehaviour
 
 	bool m_IsPlayerAtExit;
 	bool m_IsPlayerCaught;
+	bool m_IsPlayerTooSlow;
 	float m_Timer;
 	bool m_HasAudioPlayed;
 
@@ -31,6 +32,11 @@ public class GameEnding : MonoBehaviour
 		m_IsPlayerCaught = true;
 	}
 
+	public void OutOfTime ()
+	{
+		m_IsPlayerTooSlow = true;
+	}
+
 	void Update ()
 	{
 		if(m_IsPlayerAtExit)
@@ -38,6 +44,10 @@ public class GameEnding : MonoBehaviour
 			EndLevel (exitBackgroundImageCanvasGroup, false, exitAudio);
 		}
 		else if (m_IsPlayerCaught)
+		{
+			EndLevel (caughtBackgroundImageCanvasGroup, true, caughtAudio);
+		}
+		else if (m_IsPlayerTooSlow)
 		{
 			EndLevel (caughtBackgroundImageCanvasGroup, true, caughtAudio);
 		}

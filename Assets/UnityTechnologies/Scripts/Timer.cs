@@ -7,9 +7,9 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeLeft = 60.0f;
+    public float timeLeft = 40.0f;
     public TextMeshProUGUI timerText;
-    // public GameEnding m_EndGame;
+    public GameEnding gameEnding;
     
     void Start()
     {
@@ -19,12 +19,16 @@ public class Timer : MonoBehaviour
     
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        timerText.text = (timeLeft).ToString("0.00");
-        if (timeLeft < 0)
+        if (timeLeft > 0)
         {
-            // Game Over
-            // m_EndGame.EndGame();
+            timeLeft -= Time.deltaTime;
         }
+        else if (timeLeft < 0f)
+        {
+            timeLeft = 0;
+            gameEnding.OutOfTime ();
+        }
+
+        timerText.text = (timeLeft).ToString("0.00");
     }
 }
