@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
 
+    private float moveSpeed;
+    public float walkSpeed = 1.0f;
+    public float runSpeed = 1.75f;
+
     void Start()
     {
         m_Animator = GetComponent<Animator>();
@@ -26,6 +30,15 @@ public class PlayerMovement : MonoBehaviour
 
         m_Movement.Set(horizontal, 0f, vertical);
         m_Movement.Normalize();
+        if (Input.GetKey(KeyCode.Space))
+        {
+            moveSpeed = runSpeed;
+        }
+        else
+        {
+            moveSpeed = walkSpeed;
+        }
+        m_Movement = m_Movement * moveSpeed;
 
         bool hasHorizontalInput = !Mathf.Approximately(horizontal, 0f);
         bool hasVerticalInput = !Mathf.Approximately(vertical, 0f);
