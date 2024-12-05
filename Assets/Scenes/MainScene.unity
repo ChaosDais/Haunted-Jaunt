@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a249b3a23ff74f40a3f7c5d84293470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 40
+  timeLeft: 60
   timerText: {fileID: 289941788}
   gameEnding: {fileID: 723139731}
 --- !u!1 &320171315
@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 4133276668239147272, guid: 20558f9cf874c6f4e8a7442e51e76df2,
         type: 3}
       propertyPath: runSpeed
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
